@@ -1,0 +1,17 @@
+app:
+  message: Message has been sent Successfully..
+spring:
+  jackson:
+    serialization.write_dates_as_timestamps: false
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 5672
+    username: guest
+    messageExchange: MessageExchange
+    queue: add.queue
+    queue2: edit.queue
+    queue3: delete.queue
+    queue4: audit.queue
+server:
+  port: 9091

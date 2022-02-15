@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  jackson:
+    serialization.write_dates_as_timestamps: false
+  jpa:
+    open-in-view: false
+    hibernate.ddl-auto: update
+  properties:
+    hibernate:
+      show_sql: true
+      use_sql_comments: true
+      format_sql: true
+      type: trace
+
+  datasource:
+    url: jdbc:h2:~/development/apps/db/booking
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 5672
+    username: guest
+    messageExchange: MessageExchange
+    bookingExchange: BookingExchange
+    queue: add.queue
+    queue2: edit.queue
+    queue3: delete.queue
+    queue4: audit.queue
