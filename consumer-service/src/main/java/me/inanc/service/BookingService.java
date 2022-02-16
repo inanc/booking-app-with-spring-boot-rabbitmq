@@ -1,9 +1,9 @@
 package me.inanc.service;
 
-import me.inanc.domain.Booking;
-import me.inanc.repository.BookingRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.inanc.domain.Booking;
+import me.inanc.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

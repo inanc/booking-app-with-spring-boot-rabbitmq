@@ -1,7 +1,7 @@
 package me.inanc.service;
 
-import me.inanc.domain.Booking;
 import lombok.extern.slf4j.Slf4j;
+import me.inanc.domain.Booking;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;

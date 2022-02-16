@@ -21,16 +21,18 @@ import java.io.Serializable;
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, scope = TripWaypoint.class)
 public class TripWaypoint implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    public TripWaypoint(String locality) {
-        this.locality = locality;
-    }
 
     private String locality;
 
     private String latitude;
+
+    public TripWaypoint(String locality, String latitude, String longitude) {
+        this.locality = locality;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     private String longitude;
 

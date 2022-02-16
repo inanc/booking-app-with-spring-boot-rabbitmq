@@ -30,18 +30,33 @@ import java.util.Set;
 public class Booking implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String passengerName;
+    private String number;
+    private String rating;
+    private int price;
+    private int numberOfPassengers;
 
-    public Booking(String passengerName, String number, String rating, int price, int numberOfPassengers) {
-        this.passengerName = passengerName;
-        this.number = number;
-        this.rating = rating;
-        this.price = price;
-        this.numberOfPassengers = numberOfPassengers;
-    }
+    @Column(columnDefinition = "datetime")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime pickupDate;
+
+    @CreatedDate
+    @Type(type = "java.time.LocalDateTime")
+    @Column(columnDefinition = "datetime")
+    @DateTimeFormat
+    private LocalDateTime createdon;
+
+    @LastModifiedDate
+    @Type(type = "java.time.LocalDateTime")
+    @Column(columnDefinition = "datetime")
+    @DateTimeFormat
+    private LocalDateTime modifiedon;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<TripWaypoint> tripWaypoints;
 
     public Booking(String passengerName, String number, String rating, int price, int numberOfPassengers, LocalDateTime pickupDate, Set<TripWaypoint> tripWaypoints) {
         this.passengerName = passengerName;
@@ -52,42 +67,6 @@ public class Booking implements Serializable {
         this.pickupDate = pickupDate;
         this.tripWaypoints = tripWaypoints;
     }
-
-    public Booking(String passengerName, String number, String rating, int price, int numberOfPassengers, LocalDateTime pickupDate) {
-        this.passengerName = passengerName;
-        this.number = number;
-        this.rating = rating;
-        this.price = price;
-        this.numberOfPassengers = numberOfPassengers;
-        this.pickupDate = pickupDate;
-    }
-
-    private String number;
-
-    private String rating;
-
-    private int price;
-
-    private int numberOfPassengers;
-
-    @Column( columnDefinition = "datetime")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime pickupDate;
-
-    @CreatedDate
-    @Type(type = "java.time.LocalDateTime")
-    @Column( columnDefinition = "datetime")
-    @DateTimeFormat
-    private LocalDateTime createdon;
-
-    @LastModifiedDate
-    @Type(type = "java.time.LocalDateTime")
-    @Column( columnDefinition = "datetime")
-    @DateTimeFormat
-    private LocalDateTime modifiedon;
-
-    @OneToMany(cascade=CascadeType.ALL)
-    private Set<TripWaypoint> tripWaypoints;
 
 
 }
