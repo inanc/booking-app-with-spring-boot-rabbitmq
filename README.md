@@ -1,6 +1,5 @@
 # booking-app-with-spring-boot-rabbitmq
-This project a simple booking provider and consumer services developed with Spring Boot, Spring Data, RabbitMQ, REST API, Swagger, H2 Database
-
+This project is a simple booking provider and consumer services developed with Spring Boot, Spring Data, RabbitMQ, REST API, Swagger, H2 Database
 ## Getting started
 
 First, clone this repository.
